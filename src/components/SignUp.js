@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +27,8 @@ const SignUp = () => {
     }
   };
   return (
-    <div>
+    <div className="formm">
+      <h1>Sign Up</h1>
       <form onSubmit={signup}>
         <label htmlFor="username">Username:</label>
         <input type="text" name="username" />
@@ -38,6 +39,13 @@ const SignUp = () => {
         <button type="submit">Sign up</button>
       </form>
       <p>{err}</p>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Back
+      </button>
     </div>
   );
 };

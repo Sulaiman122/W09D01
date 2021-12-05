@@ -18,10 +18,10 @@ const Login = () => {
       if (result.data.token) {
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("role", result.data.result.role.role);
-        if(result.data.result.role.role=='admin'){
-            navigate('/');
-        }else{
-            navigate("/todo");
+        if (result.data.result.role.role == "admin") {
+          navigate("/");
+        } else {
+          navigate("/todo");
         }
       } else {
         setErr(result.data);
@@ -32,7 +32,9 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="formm">
+      <h1>Login</h1>
+
       <form onSubmit={login}>
         <label htmlFor="email">Email:</label>
         <input type="email" name="email" />
@@ -44,6 +46,13 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
       <p>{err}</p>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Back
+      </button>
     </div>
   );
 };

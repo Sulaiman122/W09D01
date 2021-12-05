@@ -55,22 +55,23 @@ const Post = () => {
   }, []);
 
   return (
-    <div>
+    <div className='todo'>
       <h1>Todos:</h1>
-      {data.map((item) => {
-        return (
-          <>
-            <h2 style={{ display: "inline" }}>{item.desc}</h2>
-            <button onClick={() => del(item._id)}>x</button>
-            <br />
-          </>
-        );
-      })}
-      <form onSubmit={newTodo}>
+      <form onSubmit={newTodo} className='new'>
         <p>New todo:</p>
         <input type="text" name="todo" />
         <button type="submit">Add</button>
       </form>
+      {data.map((item) => {
+        return (
+          <div key={item._id}>
+            <h2 style={{ display: "inline" }}>{item.desc}</h2>
+            <button onClick={() => del(item._id)}>x</button>
+            <br />
+          </div>
+        );
+      })}
+
       <button
         onClick={() => {
           navigate("/");
